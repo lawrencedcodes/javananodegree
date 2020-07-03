@@ -18,7 +18,9 @@ public class ReviewApplication {
 	public String uppercaseMessage(MessageService messageService) {
 		System.out.println("UppercaseMessage bean created");
 		return messageService.uppercase();
-
 	}
-
+	@Bean String lowercaseMessage(MessageService messageService) {
+		System.out.println("LowercaseMessage has been created");
+		return messageService.lowercase();
+	}
 }
