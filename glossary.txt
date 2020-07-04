@@ -49,4 +49,19 @@ Repository - @Repository  - Component interface to stored or persistent data (th
 Properties File - FIle with key value pairs separated by new lines
   application.properties file is in resources folder and allows configuration of server hostname, port, size and color fo the Spring logo
 
+HTML Template - HTML files with special tags and attributes that can be combined with a data model by a template engine like Thymeleaf to generate fully functional HTML documents. 
+Spring MVC provides a standard way to choose a template and supply the necessary data model when a request comes in.
+
+GET -  HTTP request for data
+POST - HTTP request to post new data
+MVC - Model View Controller - design pattern that emphasizes separation of application components into those 3 layers as a structured approach
+
+Model - maintains the state of the application
+View - displays UI to the user
+Controller - process user actions, update the model, forward updates back to the view
+HTML Templates are the views
+Spring Beans (@Controller) are the controllers - defined methods to handle specific user requests
+Model objects - Data transfer object - storing bits of data to be passed between browser,template engine, and the controller
+
+
 
