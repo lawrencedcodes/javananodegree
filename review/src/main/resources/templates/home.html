@@ -5,13 +5,11 @@
     <title>Home</title>
 </head>
 <body>
-    <h1 th:text="${welcomeMessage}">Hello Home!</h1>
-
-
-
-
-
-
+    <h1     th:each="msg: ${greetings}"
+            th:text="${msg}"
+            th:unless="${msg.contains('goodbye')}">
+        Hello Homepage!
+    </h1>
     <p th:text="${getusers}">Get Users</p>
 </body>
 </html>

@@ -10,7 +10,7 @@ import java.time.Instant;
 public class HomeController {
     @RequestMapping("/home")
     public String home(Model model  ) {
-        model.addAttribute("welcomeMessage", Instant.now().toString());
+        model.addAttribute("greetings",new String[]{"Hi","Hello","Hola"});
         return "home";
     }
     @RequestMapping("/users")
