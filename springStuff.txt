@@ -1,0 +1,46 @@
+<form action="#" enctype="multipart/form-data" th:action="@{file-upload}" method="POST">
+	<input type="file" class="form-control-file" id="fileUpload" name="fileUpload">
+	<input type="submit">
+</form>
+@PostMapping("/file-upload")
+public String handleFileUpload(@RequestParam("fileUpload") Multipartfile fileUpload, Model model) {
+    InputStream fis = fileUpload.getInputStream();
+
+
+
+@PostMapping
+public String uploadFile(@RequestParam Multifile file, Model model)
+^^ Spring MVC Controller to manage file uploads 
+
+ @GetMapping("/home")
+    public String getHomePage(@ModelAttribute("newMessage") MessageForm newMessage, Model model) {
+        model.addAttribute("greetings", this.messageListService.getMessages());
+        return "home";
+    }
+
+    @PostMapping("/home")
+    public String addMessage(@ModelAttribute("newMessage") MessageForm messageForm, Model model) {
+        messageListService.addMessage(messageForm.getText());
+        model.addAttribute("greetings", messageListService.getMessages());
+        messageForm.setText("");
+        return "home";
+    }
+
+<body>
+<form action="#" th:action="@{'/animal'}" th:object="${messageForm}" method="POST">
+   <label for="animalText">Enter an Animal: </label>
+   <input type="text" id="animalText" name="animalText" th:field="*{animalName}">
+   <label for="adjective">Enter an Adjective:</label>
+   <input type="text" id="adjective" name="adjective" th:field="*{adjective}">
+   <input type="submit">
+</form>
+   <h1 th:unless="${#lists.size(greetings) > 5}" th:each="msg : ${greetings}" th:text="${msg}">Hello, homepage!</h1>
+   <h1 th:if="${#lists.size(greetings) > 5}">I think that's enough!</h1>
+</body>
+Sometimes when we build web applications with Spring, we need to account for special request types and data formats. The key takeaway from this edge case is that usually, we can accomplish this by adding the correct argument to our controller method. In this example, we looked at MultiPartFile, a special request data class provided by Spring to handle large file uploads. As with any special data type, simply by adding it as an argument to our controller method, Spring knows to treat the incoming request appropriately.
+
+On the Thymeleaf side of things, we also learned how to set up a form for file upload using the enctype="multipart/form-data" attribute. This is another important takeaway - when we want to send special data types from the frontend to Spring, we need to find out how to configure the form properly.
+
+This specific example will be relevant in the final project, but in general, be on the lookout for cases where you might need to handle special request data. Implementing it might take some research!
+
+Multi-part files

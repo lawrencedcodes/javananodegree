@@ -5,18 +5,25 @@
     <title>Chat</title>
 </head>
 <body>
-<form>
+<form th:object="chatForm" action="#" th:action="@/chat" method="POST">
     <label for="username">Username:</label>
-    <input id="username" type="text">
+    <input id="username" type="text" th:field="*{username}">
     <label for="messageText">Message Text:</label>
-    <input id="messageText" type="text">
+    <input id="messageText" type="text" th:field="*{messageText}">
     <label for="messageType">Message Type: </label>
-    <select th:field="*messageType" id="messageType">
-        <option th:value="say" selected>Say</option>
-        <option th:value="shout" th:text="Shout">Shout</option>
-        <option th:value="Whisper" th:text="Whisper">Whisper</option>
+    <select th:field="{*messageType}" id="messageType">
+        <option
+            th:each="type: ${allMessageTypes}"
+            th:value="${type}"
+            th:text="${type}"
+        >
+            Say
+        </option>
     </select>
     <input type="submit">
+    <div th:each="chatMessage: ${chatMessages}">
+        <span th:text="${chatMessage.username}">Username</span>; <span th:text="${chatMessage.message}">Hello World</span>
+    </div>
 </form>
 </body>
 </html>
