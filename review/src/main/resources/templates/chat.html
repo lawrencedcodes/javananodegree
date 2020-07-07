@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat</title>
+</head>
+<body>
+<form>
+    <label for="username">Username:</label>
+    <input id="username" type="text">
+    <label for="messageText">Message Text:</label>
+    <input id="messageText" type="text">
+    <label for="messageType">Message Type: </label>
+    <select th:field="*messageType" id="messageType">
+        <option th:value="say" selected>Say</option>
+        <option th:value="shout" th:text="Shout">Shout</option>
+        <option th:value="Whisper" th:text="Whisper">Whisper</option>
+    </select>
+    <input type="submit">
+</form>
+</body>
+</html>
