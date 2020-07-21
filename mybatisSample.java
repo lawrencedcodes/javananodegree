@@ -14,3 +14,16 @@ public interface UserMapper {
 	   void delete(String username);
 }
 
+
+*********Spring Security Sample*********
+@Override
+protected void configure(HttpSecurity http) throws Exception {
+	   http.authorizeRequests()
+		              .antMatchers("/order", "/css/**", "/js/**").permitAll()
+			                 .anyRequest().authenticated();
+	      http.formLogin()
+		                 .loginPage("/login")
+				            .permitAll();
+	         http.formLogin()
+			            .defaultSuccessUrl("/tacos", true);
+}
