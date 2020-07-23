@@ -1,11 +1,9 @@
 package com.udacity.jwdnd.c1.review.mapper;
 
 import com.udacity.jwdnd.c1.review.model.User;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Options;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
+@Mapper
 public interface UserMapper {
     @Select("SELECT * FROM USERS WHERE username = #{username} ")
     User getUser(String username);

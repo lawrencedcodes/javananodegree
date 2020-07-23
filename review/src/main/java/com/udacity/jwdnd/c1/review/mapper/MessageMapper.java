@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
 
-public interface MessagesMapper {
+public interface MessageMapper {
     @Select("SELECT * FROM MESSAGES WHERE username = #{username} ")
     User getUser(String username);
 
