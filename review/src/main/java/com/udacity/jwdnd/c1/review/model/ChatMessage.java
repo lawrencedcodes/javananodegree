@@ -4,6 +4,16 @@ public class ChatMessage {
     private String username;
     private String message;
 
+    public String getMessagetext() {
+        return messagetext;
+    }
+
+    public void setMessagetext(String messagetext) {
+        this.messagetext = messagetext;
+    }
+
+    private String messagetext;
+
     public String getUsername() {
         return username;
     }
