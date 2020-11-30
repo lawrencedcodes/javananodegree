@@ -8,7 +8,6 @@
     <title>Home</title>
 </head>
 <body>
-    <h1 th:text="${welcomeMessage}">Hello Default h1</h1>
     <form action="#" method="POST" th:object="${newMessage}" th:action="@{/home}">
         <input th:field="*{text}" type="text">
         <input type="submit">

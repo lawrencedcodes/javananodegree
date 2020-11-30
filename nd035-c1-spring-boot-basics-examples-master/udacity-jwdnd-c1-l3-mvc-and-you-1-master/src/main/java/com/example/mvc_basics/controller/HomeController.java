@@ -2,8 +2,8 @@ package com.example.mvc_basics.controller;
 
 import java.time.Instant;
 
+import com.example.mvc_basics.MessageForm;
 import com.example.mvc_basics.MessageListService;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,9 +18,16 @@ public class HomeController {
     }
 
     @GetMapping("/home")
-    public String getHomePage(Model model) {
-        model.addAttribute("welcomeMessage", Instant.now().toString());
+    public String getHomePage(MessageForm newMessage, Model model) {
         model.addAttribute("messages", this.messageListService.getMessages());
+        return "home";
+    }
+
+    @PostMapping("/home")
+    public String addMessage(MessageForm messageForm, Model model) {
+        messageListService.addMessagE(messageForm.getText();
+        model.addAttribute("greetings", messageListService.getMessages());
+        messageForm.getText();
         return "home";
     }
 
