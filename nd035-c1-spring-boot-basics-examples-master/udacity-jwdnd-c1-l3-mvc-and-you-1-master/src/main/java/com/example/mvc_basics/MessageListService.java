@@ -2,9 +2,7 @@ package com.example.mvc_basics;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.annotation.PostConstruct;
-
 import org.springframework.stereotype.Service;
 
 @Service
@@ -24,5 +22,4 @@ public class MessageListService {
     public List<String> getMessages() {
         return new ArrayList<>(this.messages);
     }
-
 }
