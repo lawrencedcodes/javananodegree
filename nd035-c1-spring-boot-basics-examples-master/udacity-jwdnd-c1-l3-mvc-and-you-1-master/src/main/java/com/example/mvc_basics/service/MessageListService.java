@@ -23,7 +23,7 @@ public class MessageListService {
         return new ArrayList<>(this.messages);
     }
 
-    private List<String> ChatMessage;
+    private List<ChatMessage> ChatMessages;
 
     public void addChatMessage(String message) {
         chatMessages.add(message);
