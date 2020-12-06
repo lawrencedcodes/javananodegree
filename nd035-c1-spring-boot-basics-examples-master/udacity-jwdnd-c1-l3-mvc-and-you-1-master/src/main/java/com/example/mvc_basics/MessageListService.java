@@ -22,4 +22,10 @@ public class MessageListService {
     public List<String> getMessages() {
         return new ArrayList<>(this.messages);
     }
+
+    private List<String> ChatMessage;
+
+    public void addChatMessage(String message) {
+        chatMessages.add(message);
+    }
 }
