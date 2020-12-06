@@ -1,6 +1,9 @@
-package com.example.mvc_basics;
+package com.example.mvc_basics.model;
 
 public class ChatMessage {
+
+    public String username;
+    public String messageText;
 
     public String getUsername() {
         return this.username;
@@ -10,19 +13,12 @@ public class ChatMessage {
         this.username = username;
     }
 
-    public String getMnessageText() {
-        return this.mnessageText;
+    public String getMessageText() {
+        return this.messageText;
     }
 
-    public void setMnessageText(String mnessageText) {
-        this.mnessageText = mnessageText;
+    public void setMessageText(String mnessageText) {
+        this.messageText = mnessageText;
     }
 
-    public String username;
-    public String mnessageText;
 }
-
-// <div th:each="chatmessage: ${chatMessages}">
-// <p th:text="${chatMessage.username}">Error Text in paragraph tag 1</p>
-// <p th:text="${chatMessage.messageText}">Error Text in paragraph tag 2</p>
-// </div>

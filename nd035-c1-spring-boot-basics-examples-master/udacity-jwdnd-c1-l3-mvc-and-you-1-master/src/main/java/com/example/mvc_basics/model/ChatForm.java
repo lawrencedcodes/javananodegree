@@ -1,9 +1,12 @@
-package com.example.mvc_basics;
+package com.example.mvc_basics.model;
 
 public class ChatForm {
+    public String username;
+    public String messageText;
+    public String messageType;
 
     public String getUsername() {
-        return this.username;
+        return username;
     }
 
     public void setUsername(String username) {
@@ -11,15 +14,19 @@ public class ChatForm {
     }
 
     public String getMessageText() {
-        return this.messageText;
+        return messageText;
     }
 
     public void setMessageText(String messageText) {
         this.messageText = messageText;
     }
 
-    public String username;
+    public String getMessageType() {
+        return messageType;
+    }
 
-    public String messageText;
+    public void setMessageType(String messageType) {
+        this.messageType = messageType;
+    }
 
 }

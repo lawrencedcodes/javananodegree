@@ -1,4 +1,4 @@
-package com.example.mvc_basics;
+package com.example.mvc_basics.model;
 
 public class MessageForm {
     private String text;
