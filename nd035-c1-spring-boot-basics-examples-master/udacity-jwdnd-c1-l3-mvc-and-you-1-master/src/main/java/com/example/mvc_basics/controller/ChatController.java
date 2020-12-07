@@ -1,41 +1,42 @@
 package com.example.mvc_basics.controller;
 
 import com.example.mvc_basics.model.ChatForm;
-import com.example.mvc_basics.service.MessageListService;
+import com.example.mvc_basics.service.MessageService;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@Controller
 @RequestMapping("/chat")
 public class ChatController {
 
-    private MessageListService messageListService;
+    private MessageService messageService;
 
-    public ChatController(MessageListService messageListService) {
-        this.messageListService = messageListService;
+    public ChatController(MessageService messageService) {
+        this.messageService = messageService;
     }
 
     @GetMapping
     public String getChatPage(ChatForm chatForm, Model model) {
-        model.addAttribute("chatMessages", this.messageListService.getChatMessages());
+        model.addAttribute("chatMessages", this.messageService.getChatMessages());
         return "chat";
     }
 
     @PostMapping
     public String postChatMessage(ChatForm chatForm, Model model) {
-        this.messageListService.addChatMessage(chatForm);
+        this.messageService.addMessage(chatForm);
         chatForm.setMessageText("");
-        model.addAttribute("chatMessages", this.messageListService.getChatMessages());
+        model.addAttribute("chatMessages", this.messageService.getChatMessages());
         return "chat";
     }
 
-    @ModelAttribute("choices")
-    public String[] choices() {
+    @ModelAttribute("allMessageTypes")
+    public String[] allMessageTypes() {
         return new String[] { "Say", "Shout", "Whisper" };
     }
+
 }

@@ -1,9 +1,9 @@
 package com.example.mvc_basics.model;
 
 public class ChatForm {
-    public String username;
-    public String messageText;
-    public String messageType;
+    private String username;
+    private String messageText;
+    private String messageType;
 
     public String getUsername() {
         return username;
@@ -28,5 +28,4 @@ public class ChatForm {
     public void setMessageType(String messageType) {
         this.messageType = messageType;
     }
-
 }

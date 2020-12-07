@@ -7,16 +7,16 @@
 </head>
 <body>
 
-    <form th:object="${chatForm}" action="#" action="@{'/chat'}" method="POST">
+    <form th:object="${chatForm}" action="#" th:action="@{/chat}" method="POST">
         <label for="username">Username:</label>
         <input id="username" type="text" th:field="*{username}">
         <label for="messageText">Message Text:</label>
         <input id="messageText" type="text" th:field="*{messageText}">
         <label for="messageType">Message Type: </label>
         <select id="messageType" th:field="*{messageType}">
-            <option th:each="choice: ${choices}"
-                    th:value="${choice}"
-                    th:text="#{choice}">
+            <option th:each="type: ${allMessageTypes}"
+                    th:value="${type}"
+                    th:text="#{type}">
                     Say
             </option>
 
@@ -24,7 +24,7 @@
         <input type="submit">
         </form>
 
-        <div th:each="chatmessage: ${chatMessages}">
+        <div th:each="chatMessage: ${chatMessages}">
              <h4 th:text="${chatMessage.username}">Error Text in paragraph tag 1</h4>
              <p th:text="${chatMessage.message}">Error Text in paragraph tag 2</p>
         </div>
