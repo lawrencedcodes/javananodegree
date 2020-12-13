@@ -8,6 +8,7 @@ import java.security.SecureRandom;
 import java.util.Base64;
 
 import com.example.mvc_basics.mapper.UsersMapper;
+import com.example.mvc_basics.model.User;
 
 @Service
 public class UserService {
@@ -30,11 +31,11 @@ public class UserService {
         random.nextBytes(salt);
         String encodedSalt = Base64.getEncoder().encodeToString(salt);
         String hashedPassword = hashService.getHashedValue(user.getPassword(), encodedSalt);
-        return userMapper.insert(new User(null, user.getUsername(), encodedSalt, hashedPassword, user.getFirstName(),
+        return usersMapper.addUser(new User(null, user.getUsername(), encodedSalt, hashedPassword, user.getFirstName(),
                 user.getLastName()));
     }
 
     public User getUser(String username) {
-        return userMapper.getUser(username);
+        return usersMapper.getUser(username);
     }
 }

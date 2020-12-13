@@ -9,9 +9,11 @@ import com.example.mvc_basics.model.ChatMessage;
 
 import org.springframework.stereotype.Service;
 
+import com.example.mvc_basics.mapper.MessagesMapper;
+
 @Service
 public class MessageService {
-    private List<ChatMessage> chatMessages;
+    private MessagesMapper messagesMapper;
 
     @PostConstruct
     public void postConstruct() {
@@ -24,19 +26,19 @@ public class MessageService {
         newMessage.setUsername(chatForm.getUsername());
         switch (chatForm.getMessageType()) {
             case "Say":
-                newMessage.setMessage(chatForm.getMessageText());
+                newMessage.setMessageText(chatForm.getMessageText());
                 break;
             case "Shout":
-                newMessage.setMessage(chatForm.getMessageText().toUpperCase());
+                newMessage.setMessageText(chatForm.getMessageText().toUpperCase());
                 break;
             case "Whisper":
-                newMessage.setMessage(chatForm.getMessageText().toLowerCase());
+                newMessage.setMessageText(chatForm.getMessageText().toLowerCase());
                 break;
         }
-        this.chatMessages.add(newMessage);
+        messagesMapper.addMessage(newMessage);
     }
 
     public List<ChatMessage> getChatMessages() {
-        return chatMessages;
+        return messagesMapper.getAllMessages();
     }
 }

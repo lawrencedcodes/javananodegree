@@ -35,7 +35,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.formLogin().loginPage("/login").permitAll();
 
-        http.formLogin().defaultSuccessUrl("/home", true);
+        http.formLogin().defaultSuccessUrl("/chat", true);
     }
 
 }
