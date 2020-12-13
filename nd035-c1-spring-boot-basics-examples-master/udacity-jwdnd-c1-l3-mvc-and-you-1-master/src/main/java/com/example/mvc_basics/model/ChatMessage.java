@@ -2,7 +2,8 @@ package com.example.mvc_basics.model;
 
 public class ChatMessage {
     private String username;
-    private String message;
+    private String messagetext;
+    private Integer messageid;
 
     public String getUsername() {
         return username;
@@ -12,11 +13,19 @@ public class ChatMessage {
         this.username = username;
     }
 
-    public String getMessage() {
-        return message;
+    public String getMessageText() {
+        return messagetext;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setMessageText(String messagetext) {
+        this.messagetext = messagetext;
+    }
+
+    public Integer getMessageId() {
+        return messageid;
+    }
+
+    public void setMessageId(Integer messageid) {
+        this.messageid = messageid;
     }
 }
