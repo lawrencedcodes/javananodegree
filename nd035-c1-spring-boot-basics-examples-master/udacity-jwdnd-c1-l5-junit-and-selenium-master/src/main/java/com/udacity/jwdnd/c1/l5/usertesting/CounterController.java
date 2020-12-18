@@ -17,6 +17,7 @@ public class CounterController {
 
     @GetMapping
     public String getCounterPage(Model model) {
+
         return "counter";
     }
 
