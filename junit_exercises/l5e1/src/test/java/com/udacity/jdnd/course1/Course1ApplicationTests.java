@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class Course1ApplicationTests {
 
 	@Test
-	void testFizzBuzz(){
+	void testFizzBuzz() {
 		FizzBuzzService fbs = new FizzBuzzService();
 
 		// check non-divisible numbers return themselves
@@ -22,15 +22,15 @@ class Course1ApplicationTests {
 		assertEquals("Fizz", fbs.fizzBuzz(3));
 		assertEquals("Fizz", fbs.fizzBuzz(333));
 
-		//check numbers divisible by 5
+		// check numbers divisible by 5
 		assertEquals("Buzz", fbs.fizzBuzz(5));
 		assertEquals("Buzz", fbs.fizzBuzz(85));
 
-		//check numbers divisible by 3 and 5
+		// check numbers divisible by 3 and 5
 		assertEquals("FizzBuzz", fbs.fizzBuzz(15));
 		assertEquals("FizzBuzz", fbs.fizzBuzz(75));
 
-		//check invalid inputs
+		// check invalid inputs
 		assertThrows(IllegalArgumentException.class, () -> fbs.fizzBuzz(0));
 		assertThrows(IllegalArgumentException.class, () -> fbs.fizzBuzz(-1));
 	}
