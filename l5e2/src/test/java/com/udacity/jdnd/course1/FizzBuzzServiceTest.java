@@ -36,7 +36,6 @@ class FizzBuzzServiceTest {
 	}
 
 	@Test
-	@Test
 	void testBuzzFizz_happyPath() {
 		FizzBuzzService fbs = new FizzBuzzService();
 
