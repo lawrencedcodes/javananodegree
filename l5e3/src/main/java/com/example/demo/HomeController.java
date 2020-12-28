@@ -20,13 +20,13 @@ public class HomeController {
     public String lowFive(MessageForm messageForm, Model model) {
         messageListService.addMessage("Welcome, Grasshopper.");
         model.addAttribute("greetings", messageListService.getMessages());
-        return "harder-home";
+        return "animal";
     }
 
     @PostMapping()
     public String highFive(MessageForm messageForm, Model model) {
         messageListService.addMessage("We shall now study the " + messageForm.getAdjective() + " " + messageForm.getAnimalName() + " style.");
         model.addAttribute("greetings", messageListService.getMessages());
-        return "harder-home";
+        return "animal";
     }
 }
