@@ -1,5 +1,6 @@
 package com.example.mvc_basics.controller;
 
+import com.example.mvc_basics.model.User;
 import com.example.mvc_basics.service.UserService;
 
 import org.springframework.stereotype.Controller;

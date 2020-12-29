@@ -34,6 +34,8 @@ public class MessageService {
             case "Whisper":
                 newMessage.setMessageText(chatForm.getMessageText().toLowerCase());
                 break;
+            default:
+                break;
         }
         messagesMapper.addMessage(newMessage);
     }

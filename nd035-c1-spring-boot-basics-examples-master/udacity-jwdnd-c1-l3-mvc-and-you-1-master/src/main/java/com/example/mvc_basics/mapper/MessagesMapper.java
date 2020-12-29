@@ -1,4 +1,4 @@
-package mapper;
+package com.example.mvc_basics.mapper;
 
 import java.util.List;
 

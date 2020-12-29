@@ -7,6 +7,7 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.stereotype.Service;
 
 import com.example.mvc_basics.mapper.UsersMapper;
+import com.example.mvc_basics.model.User;
 
 import java.security.SecureRandom;
 import java.util.ArrayList;
