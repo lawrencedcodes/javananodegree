@@ -10,4 +10,9 @@ public class FilesService {
     public FilesService(FilesMapper filemapper) {
         this.filesMapper = filesMapper;
     }
+
+    public String getFiles(int userid) {
+        return null;
+    }
+
 }

@@ -1,8 +1,8 @@
 package com.udacity.jwdnd.course1.cloudstorage.controller;
 
 import com.udacity.jwdnd.course1.cloudstorage.model.User;
-import com.udacity.jwdnd.course1.cloudstorage.services.FileService;
 import com.udacity.jwdnd.course1.cloudstorage.services.FilesService;
+import com.udacity.jwdnd.course1.cloudstorage.services.CredentialService;
 import com.udacity.jwdnd.course1.cloudstorage.services.NotesService;
 import com.udacity.jwdnd.course1.cloudstorage.services.UserService;
 import org.springframework.security.core.Authentication;
@@ -19,6 +19,7 @@ public class HomeController {
     private FilesService filesService;
     private NotesService notesService;
     private UserService userService;
+    private CredentialService credentialService;
 
     public HomeController(FilesService filesService, NotesService notesService, UserService userService) {
         this.filesService = filesService;
@@ -29,17 +30,26 @@ public class HomeController {
     @GetMapping(value={"/","/home"})
     public String homeView(Authentication authentication, Model model) throws Exception {
         authentication = SecurityContextHolder.getContext().getAuthentication();
+        Object principal = authentication.getPrincipal();
         String currentPrincipalName = authentication.getName();
-        if (authentication instanceof User){
-            String username = ((User)authentication).getUsername();
+        if (principal instanceof User){
+            String username = ((User)principal).getUsername();
             User user = userService.getUser(username);
-            model.addAttribute("files", fileService.getFiles(user.getUserId()));
-            model.addAttribute("notes", notesService.getNotes(user.getUserId()));
-            model.addAttribute("credentials", credentialService.getCredentails(user.getUserId()));
+            model.addAttribute("files", filesService.getFiles(user.getUserid()));
+            model.addAttribute("notes", notesService.getNotes(user.getUserid()));
+            model.addAttribute("credentials", credentialService.getCredentials(user.getUserid()));
         } else {
-
+            String username = principal.toString();
+            User user = userService.getUser(username);
+            if (user==null) {
+                return "login";
+            } else if (filesService.getFiles(user.getUserid()) != null {
+                model.addAttribute("files", filesService.getFiles(user.getUserid()));
+                model.addAttribute("notes", notesService.getNotes(user.getUserid()));
+                model.addAttribute("credentials", credentialService.getCredentials(user.getUserid()));
+            }
+            model.addAttribute("user", user);
         }
         return "home";
     }
-
 }
