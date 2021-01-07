@@ -43,7 +43,7 @@ public class HomeController {
             User user = userService.getUser(username);
             if (user==null) {
                 return "login";
-            } else if (filesService.getFiles(user.getUserid()) != null {
+            } else if (filesService.getFiles(user.getUserid()) != null ){
                 model.addAttribute("files", filesService.getFiles(user.getUserid()));
                 model.addAttribute("notes", notesService.getNotes(user.getUserid()));
                 model.addAttribute("credentials", credentialService.getCredentials(user.getUserid()));
